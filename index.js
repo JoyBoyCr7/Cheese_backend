@@ -35,7 +35,7 @@ const Cheese = mongoose.model('Cheese', cheeseSchema)
 
 // IDUCS
 
-app.get("/people",async(req,res)=>{
+app.get("/cheese",async(req,res)=>{
     try {
         const response = await Cheese.find({})
         res.json(response)
@@ -44,7 +44,7 @@ app.get("/people",async(req,res)=>{
     }
 });
 
-app.post("/people",async(req,res)=>{
+app.post("/cheese",async(req,res)=>{
     try {
         const cheese = await Cheese.create(req.body)
         res.json(cheese)
@@ -53,7 +53,7 @@ app.post("/people",async(req,res)=>{
     }
 });
 
-app.get("/people/:id", async(req,res)=>{
+app.get("/cheese/:id", async(req,res)=>{
     try {
         const cheese = await Cheese.findById(req.params.id)
         res.json(cheese)
@@ -62,7 +62,7 @@ app.get("/people/:id", async(req,res)=>{
     }
 });
 
-app.put("/people/:id", async(req,res)=>{
+app.put("/cheese/:id", async(req,res)=>{
     try {
         const cheese = await Cheese.findByIdAndUpdate(req.params.id, req.body, {new:true})
         res.json(cheese)
@@ -71,7 +71,7 @@ app.put("/people/:id", async(req,res)=>{
     }
 });
 
-app.delete("/people/:id", async(req,res)=>{
+app.delete("/cheese/:id", async(req,res)=>{
     try {
         const cheese = await Cheese.findByIdAndDelete(req.params.id)
         res.status(204).json(cheese)
