@@ -27,9 +27,8 @@ mongoose.connection
 /// Cheese Models
 const cheeseSchema = mongoose.Schema({
     name: String,
-    taste: String,
+    countryOfOrigin: String,
     image: String
-    
 })
 
 const Cheese = mongoose.model('Cheese', cheeseSchema)
