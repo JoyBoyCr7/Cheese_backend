@@ -7,7 +7,7 @@ const cors = require('cors')
 const app = express()
 
 
-const {PORT,URL} = process.env
+const {PORT,DATABASE_URL} = process.env
 
 
 /// Middlesware
@@ -17,7 +17,7 @@ app.use(express.json())
 ///
 
 // MongoDB Conection 
-mongoose.connect(URL)
+mongoose.connect(DATABASE_URL)
 mongoose.connection
 .on('open', () => console.log("i'm connnected"))
 .on('close', () => console.log("i'm Disconected"))
@@ -84,7 +84,7 @@ app.delete("/people/:id", async(req,res)=>{
 
 // test route
 app.get('/',(req,res)=>{
-    res.json({Name:"ronard"})
+    res.json({Name:"test route "})
 })
 
 
